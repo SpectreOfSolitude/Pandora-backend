@@ -1,0 +1,62 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Pandora API Documentation",
+        "description": "API list dan kegunaannya untuk aplikasi PEMIRA.",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000"
+        }
+    ],
+    "paths": {
+        "/api/home": {
+            "post": {
+                "description": "Masukkan NIM untuk mendapatkan token pada tampilan awal.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "examples": {
+                                "105221023": {
+                                    "description": "Memasukkan NIM dari Akasyah.",
+                                    "value": {
+                                        "nim": "105221023"
+                                    }
+                                }
+                            },
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "nim": {
+                                        "type": "string"
+                                    },
+                                    "errors":{
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "sukses memasukkan NIM mahasiswa.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "nim": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
