@@ -19,6 +19,8 @@ Route::get('/test', function() {
     return response()->json(['message' => 'API is working']);
 });
 
+Route::post('/checktoken', [NIMController::class, 'inputToken']);
+Route::post('/vote', [NIMController::class, 'inputChoice']);
 Route::post('/getToken', [NIMController::class, 'inputNIM']);
 
 
